@@ -144,6 +144,7 @@
 <script type="text/javascript" src="assets/js/main.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap-input-spinner.js"></script>
+<script type="text/javascript" src="assets/plugins/alertifyjs/alertify.min.js"></script>
 <script>
     $("input[type='number']").inputSpinner();
 </script>

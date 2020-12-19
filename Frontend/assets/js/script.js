@@ -31,6 +31,7 @@ $(document).ready(function () {
                         .removeClass('ajax-message-active');
                 }, 3000);
                 renderCart(data);
+                alertify.success('Thêm sản phẩm thành công');
             }
         });
     });
@@ -45,6 +46,7 @@ $(document).ready(function () {
                 id: id
             },
             success: function (data) {
+                data = JSON.parse(data);
                 console.log(data);
                 $('.ajax-message')
                     .html('Xóa sản phẩm thành công');
@@ -54,7 +56,9 @@ $(document).ready(function () {
                     $('.ajax-message')
                         .removeClass('ajax-message-active');
                 }, 3000);
-                renderCart(data);
+                alertify.success('Xóa sản phẩm thành công');
+                renderCart(data.cartHeader);
+                renderTableCart(data.cartTable);
             }
         });
     });
@@ -71,6 +75,7 @@ $(document).ready(function () {
                 id: id
             },
             success: function (data) {
+                data = JSON.parse(data);
                 console.log(data);
                 $('.ajax-message')
                     .html('Xóa sản phẩm thành công');
@@ -80,9 +85,9 @@ $(document).ready(function () {
                     $('.ajax-message')
                         .removeClass('ajax-message-active');
                 }, 3000);
-                $('#list-cart').empty();
-                $('#list-cart').html(data);
-                $("input[type='number']").inputSpinner();
+                alertify.success('Xóa sản phẩm thành công');
+                renderCart(data.cartHeader);
+                renderTableCart(data.cartTable);
 
             }
         });
@@ -101,6 +106,7 @@ $(document).ready(function () {
                 quantity: quantity
             },
             success: function (data) {
+                data = JSON.parse(data);
                 console.log(data);
                 $('.ajax-message')
                     .html('Xóa sản phẩm thành công');
@@ -110,9 +116,8 @@ $(document).ready(function () {
                     $('.ajax-message')
                         .removeClass('ajax-message-active');
                 }, 3000);
-                $('#list-cart').empty();
-                $('#list-cart').html(data);
-                $("input[type='number']").inputSpinner();
+                renderCart(data.cartHeader);
+                renderTableCart(data.cartTable);
 
             }
         });
@@ -124,6 +129,13 @@ $(document).ready(function () {
         var amount = $('.cart-amount').html();
         amount = amount == undefined ? 0 : amount.trim();
         $('#change-amount-cart').html(amount);
+    }
+
+    function renderTableCart(data) {
+        $('#list-cart').empty();
+        $('#list-cart').html(data);
+        $("input[type='number']").inputSpinner();
+
     }
 
     

@@ -46,7 +46,11 @@ class CartController extends Controller
     unset($_SESSION['cart'][$product_id]);
     $_SESSION['totalPrice'] -= $_SESSION['totalItemPrice'][$product_id];
     $_SESSION['totalQuantity'] -= $quantity;
-    $this->content = $this->view('views/carts/header_cart.php');
+    $array = [
+      'cartTable' => $this->render('views/carts/cart_table.php'), 
+      'cartHeader' => $this->render('views/carts/header_cart.php'),
+    ];
+    echo json_encode($array);
   }
 
   // Cart Table(index)
@@ -56,7 +60,11 @@ class CartController extends Controller
     unset($_SESSION['cart'][$product_id]);
     $_SESSION['totalPrice'] -= $_SESSION['totalItemPrice'][$product_id];
     $_SESSION['totalQuantity'] -= $quantity;
-    $this->content = $this->view('views/carts/cart_table.php');
+    $array = [
+      'cartTable' => $this->render('views/carts/cart_table.php'), 
+      'cartHeader' => $this->render('views/carts/header_cart.php'),
+    ];
+    echo json_encode($array);
   }
 
   public function update() {
@@ -72,7 +80,11 @@ class CartController extends Controller
   }
   $_SESSION['cart'][$product_id]['quantity'] = $quantity;
   $_SESSION['totalItemPrice'][$product_id] = $_SESSION['cart'][$product_id]['quantity'] * $_SESSION['cart'][$product_id]['current_price'];
-  $this->content = $this->view('views/carts/cart_table.php');
+  $array = [
+    'cartTable' => $this->render('views/carts/cart_table.php'), 
+    'cartHeader' => $this->render('views/carts/header_cart.php'),
+  ];
+  echo json_encode($array);
 
   }
 

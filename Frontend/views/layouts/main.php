@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="assets/plugins/revolution/css/settings.css">
     <link rel="stylesheet" href="assets/plugins/revolution/css/layers.css">
     <link rel="stylesheet" href="assets/plugins/revolution/css/navigation.css">
+    <link rel="stylesheet" href="assets/plugins/alertifyjs/css/alertify.min.css"/>
+    <link rel="stylesheet" href="assets/plugins/alertifyjs/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="assets/plugins/alertifyjs/css/themes/semantic.min.css"/>
+    <link rel="stylesheet" href="assets/plugins/alertifyjs/css/themes/bootstrap.min.css"/>
 
     <!-- Custom-->
     <link rel="stylesheet" href="assets/css/style.css">
