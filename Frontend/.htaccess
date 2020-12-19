@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteRule gio-hang-cua-ban.html index.php?controller=cart&action=index
+RewriteRule xoa-san-pham/([0-9]{1,}).html index.php?controller=cart&action=delete
+#/index.php?controller=product&action=detail&id=7
+# - Rewrite cho trang chi tiết sản phẩm:
+# chi-tiet-san-pham/7
+# Với tham số động, bắt buộc phải dùng Biểu thức chính
+# quy - Regex
+RewriteRule chi-tiet-san-pham/([0-9]{1,}) index.php?controller=product&action=detail
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?controller=product&action=showAllProductsByCategory&name=$1
+RewriteRule giam-gia.html index.php?controller=product&action=saleProducts
+
