@@ -8,27 +8,35 @@ class Product extends Model {
     {
         parent::__construct();
         if (isset($_GET['name']) && !empty($_GET['name'])) {
-            $this->str_search .= " AND products.title LIKE '%{$_GET['name']}%'";
+            $this->str_search .= " AND categories.name LIKE '%{$_GET['name']}%'";
         }
         if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
             $this->str_search .= " AND products.category_id = {$_GET['category_id']}";
         }
     }
-    public function countTotal($category_name)
+    public function countTotal()
     {
-        $obj_select = $this->connection->prepare("SELECT COUNT(products.id) FROM products WHERE category_id = (SELECT id FROM categories WHERE name='$category_name')");
+        $obj_select = $this->connection->prepare("SELECT COUNT(products.id) FROM products WHERE category_id = (SELECT id FROM categories WHERE TRUE $this->str_search)");
         $obj_select->execute();
 
         return $obj_select->fetchColumn();
     }
 
-    public function getAllPagination($arr_params, $category_name)
+    public function countTotalProductsSale() 
+    {
+      $obj_select = $this->connection->prepare("SELECT COUNT(id) FROM products WHERE original_price <> 0");
+      $obj_select->execute();
+
+      return $obj_select->fetchColumn();
+    }
+
+    public function getAllPagination($arr_params)
     {
         $limit = $arr_params['limit'];
         $page = $arr_params['page'];
         $start = ($page - 1) * $limit;
         $obj_select = $this->connection
-            ->prepare("SELECT * FROM products WHERE category_id = (SELECT id FROM categories WHERE name='$category_name')
+            ->prepare("SELECT * FROM products WHERE category_id = (SELECT id FROM categories WHERE TRUE $this->str_search)
                         LIMIT $start, $limit
                         ");
 
@@ -39,12 +47,6 @@ class Product extends Model {
         return $products;
     }
 
-
-  /**
-   * Lấy thông tin sản phẩm theo id
-   * @param $id
-   * @return mixed
-   */
   public function getById($id)
   {
     $obj_select = $this->connection
@@ -68,16 +70,32 @@ class Product extends Model {
     return $product;
   }
 
-  public function getProductsByCategory($category_name) {
-    $sql_select_all = "SELECT * FROM products WHERE category_id = (SELECT id FROM categories WHERE name='$category_name')";
+  public function getProductsSale($arr_params) {
+    $limit = $arr_params['limit'];
+    $page = $arr_params['page'];
+    $start = ($page - 1) * $limit;
+    $obj_select = $this->connection->prepare("SELECT * FROM products WHERE original_price <> 0 LIMIT $start, $limit");
+    $arr_select = [];
+    $obj_select->execute($arr_select);
+    $products = $obj_select->fetchAll(PDO::FETCH_ASSOC);
+    return $products;
+  }
+
+  public function getTopSale() {
+    $sql_select_all = "SELECT DISTINCT *
+                        FROM sale a 
+                        WHERE 4 >= (SELECT COUNT(DISTINCT salePrice) 
+                        FROM sale b 
+                        WHERE b.salePrice >= a.salePrice)
+                        ORDER BY a.salePrice DESC;";
     $obj_select_all = $this->connection->prepare($sql_select_all);
     $obj_select_all->execute();
     $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
     return $products;
   }
 
-  public function getProductsSale() {
-    $sql_select_all = "SELECT * FROM products WHERE original_price <> 0";
+  public function getNewProducts() {
+    $sql_select_all = "SELECT p.*,c.name FROM products p JOIN categories c ON c.id = p.category_id WHERE p.new = 1";
     $obj_select_all = $this->connection->prepare($sql_select_all);
     $obj_select_all->execute();
     $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);

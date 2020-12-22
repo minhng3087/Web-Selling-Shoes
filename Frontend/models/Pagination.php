@@ -30,20 +30,12 @@ class Pagination
     //chế độ hiển thị phân trang (show ra tất cả page hay ko)
     'full_mode' => FALSE
   ];
-
-  //lợi dụng phương thức khởi tạo của class
-  //để gán giá trị mặc định cho thuộc tính params vừa khai báo
   public function __construct($params) {
     $this->params = $params;
   }
 
-  //tạo 1 phương thức lấy tổng số trang hiện tại
   public function getTotalPage() {
     $total = $this->params['total'] / $this->params['limit'];
-    //cần làm tròn lên vì có trường hợp phép chia ra số
-    //thập phân
-    $total = ceil($total); //floor - làm tròn xuống
-    //round - làm tròn phần thập phân
     return $total;
   }
 
@@ -55,9 +47,6 @@ class Pagination
     $page = 1;
     if (isset($_GET['page']) && is_numeric($_GET['page'])) {
       $page = $_GET['page'];
-      //kiểm tra nếu user nhập thủ công giá trị cho tham số
-      // page trên URL mà > tổng số trang đang có
-      //thì gán biến page = tổng số trang
       $total_page = $this->getTotalPage();
       if ($page >= $total_page) {
         $page = $total_page;
@@ -69,23 +58,15 @@ class Pagination
   //tạo phương thức lấy ra link HTML của trang trước đó
   // - Link Prev
   public function getPrevPage() {
-    //cần phân tích cấu trúc HTML nào sẽ dùng để xây dựng
-    //ra phân trang
-    //do hệ thống admin hiện tại đang dùng bootstrap
-    //nên sẽ sử dụng cấu trúc ul li để dựng phân trang
     $prev_page = '';
-    //lấy ra trang hiện tại
     $current_page = $this->getCurrentPage();
-    //link Prev chỉ hiển thị khi trang hiện tại >= 2
     if ($current_page >= 2) {
-      //lấy ra các giá trị của controller và action
-      //từ thuộc tính params
       $controller = $this->params['controller'];
       $action = $this->params['action'];
-      $name = $this->params['name'];
+      if($this->params['query_additional']) $query_additional = $this->params['query_additional'];
       $page = $current_page - 1;
       $prev_url =
-        "index.php?controller=$controller&action=$action&name=$name&page=$page";
+        "index.php?controller=$controller&action=$action$query_additional&page=$page";
       //tạo cấu trúc li cho biến $prev_page
       $prev_page = "<li><a href='$prev_url'><i class='fa fa-angle-left'></i></a></li>";
     }
@@ -95,26 +76,20 @@ class Pagination
   //xây dựng phương thức tạo ra link Next cho phân trang
   public function getNextPage() {
     $next_page = '';
-    //lấy ra số trang hiện tại và tổng số trang
-    //để check việc hiển thị link Next
-    //vì chỉ hiển thị link Next khi trang hiện tại
-    // < tổng số trang
     $current_page = $this->getCurrentPage();
     $total_page = $this->getTotalPage();
     if ($current_page < $total_page) {
       $controller = $this->params['controller'];
       $action = $this->params['action'];
-      $name = $this->params['name'];
+      if($this->params['query_additional']) $query_additional = $this->params['query_additional'];
       $page = $current_page + 1;
       $next_url =
-      "index.php?controller=$controller&action=$action&name=$name&page=$page";
+      "index.php?controller=$controller&action=$action$query_additional&page=$page";
       $next_page = "<li><a href='$next_url'><i class='fa fa-angle-right'></i></a></li>";
     }
     return $next_page;
   }
 
-  //xây dựng phương thức hiển thị ra 1 cấu trúc HTML phân trang
-  //hoàn chinh
   public function getPagination() {
     $data = '';
     //nếu tổng số trang hiện tại chỉ = 1, thì ko cần hiển thị
@@ -132,7 +107,7 @@ class Pagination
     //tạo các biến controller, action lấy từ thuộc tính params
     $controller = $this->params['controller'];
     $action = $this->params['action'];
-    $name = $this->params['name'];
+    if($this->params['query_additional']) $query_additional = $this->params['query_additional'];
     //nếu như hiển thị phân trang theo kiểu ..
     // -> full_mode = FALSE
     $full_mode = $this->params['full_mode'];
@@ -141,7 +116,7 @@ class Pagination
         $current_page = $this->getCurrentPage();
         //hiển thị trang 1, trang cuối, trang ngay trước trang hiện tại và trang ngay sau trang hiện tại
         if ($page == 1 || $page == $total_page || $page  == $current_page - 1 || $page == $current_page + 1) {
-          $page_url = "index.php?controller=$controller&action=$action&name=$name&page=$page";
+          $page_url = "index.php?controller=$controller&action=$action$query_additional&page=$page";
           $data .= "<li><a href='$page_url'>$page</a></li>";
         }
         //nếu là trang hiện tại thì sẽ ko có link
@@ -168,7 +143,7 @@ class Pagination
           $data .= "<li class='active'><a href='#'>$page</a></li>";
         } else {
           $page_url
-            = "index.php?controller=$controller&action=$action&name=$name&page=$page";
+            = "index.php?controller=$controller&action=$action$query_additional&page=$page";
           $data .= "<li><a href='$page_url'>$page</a></li>";
         }
       }

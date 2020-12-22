@@ -21,14 +21,22 @@
                     <div class="ps-product__column">
                         <div class="ps-shoe mb-30">
                             <div class="ps-shoe__thumbnail">
+                                <?php if($product['new'] == 1 && $product['original_price']!=0): ?>
                                 <div class="ps-badge"><span>New</span></div>
-                                    <?php if($product['original_price']!=0): ?>
-                                        <div class="ps-badge ps-badge--sale ps-badge--2nd">
-                                            <span>-<?php 
-                                                echo round((1 - $product['current_price']/$product['original_price']) * 100, 0)?>%
-                                            </span>
-                                        </div>
-                                    <?php endif; ?>
+                                <div class="ps-badge ps-badge--sale ps-badge--2nd">
+                                    <span>-<?php 
+                                        echo round((1 - $product['current_price']/$product['original_price']) * 100, 0)?>%
+                                    </span>
+                                </div>
+                                <?php elseif($product['original_price']!=0): ?>
+                                <div class="ps-badge ps-badge--sale">
+                                    <span>-<?php 
+                                        echo round((1 - $product['current_price']/$product['original_price']) * 100, 0)?>%
+                                    </span>
+                                </div>
+                                <?php elseif($product['new'] ==1 ): ?>
+                                    <div class="ps-badge"><span>New</span></div>
+                                <?php endif; ?>
                                 <span class="ps-shoe__favorite add-to-cart" data-id="<?php echo $product['id']; ?>">
                                     <i class="ps-icon-shopping-cart"></i>
                                 </span>
@@ -48,7 +56,13 @@
                                 </div>
                                 <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#"><?php echo $product['title']; ?></a>
                                     <span class="ps-shoe__price">
-                                    <del><?php echo number_format($product['original_price']) ?></del> <?php echo number_format($product['current_price']) ?></span>
+                                    <?php if($product['original_price'] !=0): ?>
+                                    <del>
+                                        <?php echo number_format($product['original_price']) ?>
+                                    </del> 
+                                    <?php endif; ?>
+                                        <?php echo number_format($product['current_price']) ?>
+                                    </span>
                                 </div>
                             </div>
                         </div>

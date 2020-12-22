@@ -14,7 +14,11 @@ class ProductController extends Controller {
   public function showAllProductsByCategory() {
     $name = $_GET['name'];
     $product_model = new Product();
-    $count_total = $product_model->countTotal($name);
+    $count_total = $product_model->countTotal();
+    $query_additional = '';
+    if (isset($_GET['name'])) {
+      $query_additional .= '&name=' . $_GET['name'];
+    }
 
     $arr_params = [
         'total' => $count_total,
@@ -23,14 +27,12 @@ class ProductController extends Controller {
         'controller' => 'product',
         'action' => 'showAllProductsByCategory',
         'full_mode' => false,
-        'name' => $name,
+        'query_additional' => $query_additional,
         'page' => isset($_GET['page']) ? $_GET['page'] : 1
     ];
-    $products = $product_model->getAllPagination($arr_params, $name);
+    $products = $product_model->getAllPagination($arr_params);
     $pagination = new Pagination($arr_params);
-
     $pages = $pagination->getPagination();
-
     $this->content = $this->render('views/products/show_all.php',[
       'products' => $products,
       'pages' => $pages,
@@ -40,9 +42,22 @@ class ProductController extends Controller {
 
   public function saleProducts() {
     $product_model = new Product();
-    $products = $product_model->getProductsSale();
+    $count_total = $product_model->countTotalProductsSale();
+    $arr_params = [
+      'total' => $count_total,
+      'limit' => 12,
+      'query_string' => 'page',
+      'controller' => 'product',
+      'action' => 'saleProducts',
+      'full_mode' => false,
+      'page' => isset($_GET['page']) ? $_GET['page'] : 1
+    ];
+    $products = $product_model->getProductsSale($arr_params);
+    $pagination = new Pagination($arr_params);
+    $pages = $pagination->getPagination();
     $this->content = $this->render('views/products/show_all.php',[
-      'products' => $products
+      'products' => $products,
+      'pages' => $pages
     ]);
     require_once 'views/layouts/main.php';
   }

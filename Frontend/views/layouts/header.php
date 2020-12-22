@@ -34,7 +34,7 @@
           </div>
           <div class="navigation__column center">
                 <ul class="main-menu menu">
-                  <li class="menu-item menu-item-has-children dropdown"><a href="index.php?controller=home">Home</a></li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="home">Home</a></li>
                   <li class="menu-item menu-item-has-children dropdown"><a href="#">Thương hiệu</a>
                     <ul class="sub-menu">
                         <?php 
