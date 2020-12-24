@@ -13,6 +13,19 @@ class Product extends Model {
         if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
             $this->str_search .= " AND products.category_id = {$_GET['category_id']}";
         }
+
+        if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-desc') {
+          $this->str_search .= " ORDER BY products.title DESC";
+        }
+        if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-asc') {
+            $this->str_search .= " ORDER BY products.title ASC";
+        }
+        if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'price-desc') {
+            $this->str_search .= " ORDER BY products.current_price DESC";
+        }
+        if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'price-asc') {
+            $this->str_search .= " ORDER BY products.current_price ASC";
+        }
     }
     public function countTotal()
     {
@@ -36,7 +49,7 @@ class Product extends Model {
         $page = $arr_params['page'];
         $start = ($page - 1) * $limit;
         $obj_select = $this->connection
-            ->prepare("SELECT * FROM products WHERE category_id = (SELECT id FROM categories WHERE TRUE $this->str_search)
+            ->prepare("SELECT products.*, categories.name FROM products JOIN categories ON products.category_id = categories.id WHERE TRUE $this->str_search
                         LIMIT $start, $limit
                         ");
 

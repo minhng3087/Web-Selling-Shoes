@@ -92,7 +92,7 @@ $(document).ready(function () {
         $("input[type='number']").inputSpinner();
     }
 
-    $("select.orderBy").change(function(){
+    $('select[class="ps-select selectpicker"]').change(function(){
         var selected = $(this).children("option:selected").val();
         var name = location.href.split("/").pop();
         $('form.assss').submit();

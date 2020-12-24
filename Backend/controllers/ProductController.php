@@ -23,6 +23,9 @@ class ProductController extends Controller
         if (isset($_GET['orderBy'])) {
         $query_additional .= '&orderBy=' . $_GET['orderBy'];
         }
+        if(isset($_GET['price'])) {
+        $query_additional .= '&price=' . $_GET['price'];
+        }
         $arr_params = [
             'total' => $count_total,
             'limit' => 10,

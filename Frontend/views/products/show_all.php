@@ -3,15 +3,18 @@
             <div class="ps-products" data-mh="product-listing">
             <div class="ps-product-action">
                 <div class="ps-product__filter">
-                <form method="post" action="" class="assss"> 
-                <select class="ps-select selectpicker orderBy" name="aaaa">
-                    <option value="default">Mặc định</option>
-                    <option value="price-asc" >Giá tăng dần</option>
-                    <option value="price-desc">Giá giảm dần</option>
-                    <option value="alpha-asc">Từ A-Z</option>
-                    <option value="alpha-desc">Từ Z-A</option>
-                </select>
-                <input type="submit" style="display: none;" value="submit">
+                <form method="get" action="" class="assss"> 
+                    <select class="ps-select selectpicker" name="orderBy">
+                        <option value="">Mặc định</option>
+                        <option value="price-asc" <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'price-asc') echo "selected";?>>Giá tăng dần</option>
+                        <option value="price-desc" <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'price-desc') echo "selected";?>>Giá giảm dần</option>
+                        <option value="alpha-asc"  <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-asc') echo "selected";?>>Từ A-Z</option>
+                        <option value="alpha-desc" <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-desc') echo "selected";?>>Từ Z-A</option>
+                    </select>
+                    <input type="hidden" name="controller" value="<?php echo $_GET['controller'];?>"/>
+                    <input type="hidden" name="action" value="<?php echo $_GET['action'];?>"/>
+                    <input type="hidden" name="name" value="<?php echo $_GET['name'];?>"/>
+                    <input type="submit" style="display: none;" value="submit">
                 </form>
                 </div>
                 <!-- Phân trang -->

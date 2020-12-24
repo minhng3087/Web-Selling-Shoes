@@ -39,7 +39,7 @@
                     <ul class="sub-menu">
                         <?php 
                         foreach ($_SESSION['categories_name'] as $categoryName): ?>
-                          <li class="menu-item"><a href="<?php echo $categoryName['name'];?>">
+                          <li class="menu-item"><a href="index.php?controller=product&action=showAllProductsByCategory&name=<?php echo $categoryName['name']; ?>">
                           <?php echo $categoryName['name']; ?></a></li>
                         <?php endforeach; ?>
                     </ul>

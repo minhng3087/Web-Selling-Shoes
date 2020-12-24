@@ -32,6 +32,21 @@ class Product extends Model
         if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
             $this->str_search .= " AND products.category_id = {$_GET['category_id']}";
         }
+        // Lọc theo giá
+        if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] === '<1tr') {
+            $this->str_search .= " AND products.current_price < 1000000";
+        }
+        if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] === '1tr-1.5tr') {
+            $this->str_search .= " AND products.current_price BETWEEN 1000000 AND 2000000";
+        }
+        if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] === '1.5tr-2tr') {
+            $this->str_search .= " AND products.current_price BETWEEN 1000000 AND 2000000";
+        }
+        if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] === '>2tr') {
+            $this->str_search .= " AND products.current_price > 2000000";
+        }
+
+        // Sap xep
         if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-desc') {
             $this->str_search .= " ORDER BY products.title DESC";
         }

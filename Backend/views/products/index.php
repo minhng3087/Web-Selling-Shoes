@@ -33,6 +33,16 @@ require_once 'helpers/Helper.php';
             <option value="alpha-desc" <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-desc') echo "selected";?>>Từ Z-A</option>
         </select>
     </div>
+    <div class="form-group">
+        <label for="title">Lọc theo giá</label>
+        <select name="price" class="form-control">
+            <option value="" >Chọn</option>
+            <option value="<1tr" <?php if (isset($_GET['price']) && $_GET['price'] === '<1tr') echo "selected";?>><1,000,000</option>
+            <option value="1tr-1.5tr" <?php if (isset($_GET['price']) && $_GET['price'] === '1tr-1.5tr') echo "selected";?>>1,000,000-1,500,000</option>
+            <option value="1.5tr-2tr"  <?php if (isset($_GET['price']) && $_GET['price'] === '1.5tr-2tr') echo "selected";?>>1,500,000-2,000,000</option>
+            <option value=">2tr" <?php if (isset($_GET['price']) && $_GET['price'] === '>2tr') echo "selected";?>>>2,000,000</option>
+        </select>
+    </div>
     <input type="hidden" name="controller" value="product"/>
     <input type="hidden" name="action" value="index"/>
     <input type="submit" name="search" value="Tìm kiếm" class="btn btn-primary"/>
