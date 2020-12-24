@@ -24,7 +24,7 @@ require_once 'helpers/Helper.php';
     </tr>
     <tr>
         <th>Price</th>
-        <td><?php echo number_format($product['price']) ?></td>
+        <td><?php echo number_format($product['current_price']) ?></td>
     </tr>
     <tr>
         <th>Seo Title</th>

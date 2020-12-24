@@ -9,4 +9,5 @@ RewriteRule gio-hang-cua-ban.html index.php?controller=cart&action=index
 RewriteRule chi-tiet-san-pham/([0-9]{1,}) index.php?controller=product&action=detail
 RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?controller=product&action=showAllProductsByCategory&name=$1
 RewriteRule giam-gia.html index.php?controller=product&action=saleProducts
+RewriteRule ^([a_zA-Z0-9_-]+)/orderBy=^([a_zA-Z0-9_-]+)$ index.php?controller=product&action=orderBy&name=$1&orderBy=$2
 

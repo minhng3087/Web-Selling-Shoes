@@ -20,9 +20,12 @@ class ProductController extends Controller
         if (isset($_GET['category_id'])) {
         $query_additional .= '&category_id=' . $_GET['category_id'];
         }
+        if (isset($_GET['orderBy'])) {
+        $query_additional .= '&order_by=' . $_GET['orderBy'];
+        }
         $arr_params = [
             'total' => $count_total,
-            'limit' => 1,
+            'limit' => 10,
             'query_string' => 'page',
             'controller' => 'product',
             'action' => 'index',
@@ -53,7 +56,7 @@ class ProductController extends Controller
         if (isset($_POST['submit'])) {
         $category_id = $_POST['category_id'];
         $title = $_POST['title'];
-        $price = $_POST['price'];
+        $price = $_POST['current_price'];
         $amount = $_POST['amount'];
         $summary = $_POST['summary'];
         $content = $_POST['content'];

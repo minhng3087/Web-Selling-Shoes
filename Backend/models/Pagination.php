@@ -82,9 +82,10 @@ class Pagination
         //từ thuộc tính params
         $controller = $this->params['controller'];
         $action = $this->params['action'];
+        $query_additional = $this->params['query_additional'];
         $page = $current_page - 1;
         $prev_url =
-            "index.php?controller=$controller&action=$action&page=$page";
+            "index.php?controller=$controller&action=$action$query_additional&page=$page";
         //tạo cấu trúc li cho biến $prev_page
         $prev_page = "<li><a href='$prev_url'>Prev</a></li>";
         }
@@ -103,9 +104,10 @@ class Pagination
         if ($current_page < $total_page) {
         $controller = $this->params['controller'];
         $action = $this->params['action'];
+        $query_additional = $this->params['query_additional'];
         $page = $current_page + 1;
         $next_url =
-            "index.php?controller=$controller&action=$action&page=$page";
+            "index.php?controller=$controller&action=$action$query_additional&page=$page";
         $next_page = "<li><a href='$next_url'>Next</a></li>";
         }
         return $next_page;
@@ -130,7 +132,7 @@ class Pagination
         //tạo các biến controller, action lấy từ thuộc tính params
         $controller = $this->params['controller'];
         $action = $this->params['action'];
-
+        $query_additional = $this->params['query_additional'];
         //nếu như hiển thị phân trang theo kiểu ..
         // -> full_mode = FALSE
         $full_mode = $this->params['full_mode'];
@@ -139,7 +141,7 @@ class Pagination
             $current_page = $this->getCurrentPage();
             //hiển thị trang 1, trang cuối, trang ngay trước trang hiện tại và trang ngay sau trang hiện tại
             if ($page == 1 || $page == $total_page || $page  == $current_page - 1 || $page == $current_page + 1) {
-            $page_url = "index.php?controller=$controller&action=$action&page=$page";
+            $page_url = "index.php?controller=$controller&action=$action$query_additional&page=$page";
             $data .= "<li><a href='$page_url'>$page</a></li>";
             }
             //nếu là trang hiện tại thì sẽ ko có link
@@ -166,7 +168,7 @@ class Pagination
             $data .= "<li class='active'><a href='#'>$page</a></li>";
             } else {
             $page_url
-                = "index.php?controller=$controller&action=$action&page=$page";
+                = "index.php?controller=$controller&action=$action$query_additional&page=$page";
             $data .= "<li><a href='$page_url'>$page</a></li>";
             }
         }

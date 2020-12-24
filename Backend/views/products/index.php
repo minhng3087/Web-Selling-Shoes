@@ -12,8 +12,6 @@ require_once 'helpers/Helper.php';
         <label for="title">Chọn danh mục</label>
         <select name="category_id" class="form-control">
             <?php foreach ($categories as $category):
-                //giữ trạng thái selected của category sau khi chọn dựa vào
-//                tham số category_id trên trình duyệt
                 $selected = '';
                 if (isset($_GET['category_id']) && $category['id'] == $_GET['category_id']) {
                     $selected = 'selected';
@@ -23,6 +21,15 @@ require_once 'helpers/Helper.php';
                     <?php echo $category['name'] ?>
                 </option>
             <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="title">Sắp xếp</label>
+        <select name="orderBy" class="form-control">
+            <option value="price-asc" <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'price-asc') echo "selected";?>>Giá tăng dần</option>
+            <option value="price-desc" <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'price-desc') echo "selected";?>>Giá giảm dần</option>
+            <option value="alpha-asc"  <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-asc') echo "selected";?>>Từ A-Z</option>
+            <option value="alpha-desc" <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-desc') echo "selected";?>>Từ Z-A</option>
         </select>
     </div>
     <input type="hidden" name="controller" value="product"/>
@@ -60,7 +67,7 @@ require_once 'helpers/Helper.php';
                         <img height="80" src="assets/uploads/<?php echo $product['avatar'] ?>"/>
                     <?php endif; ?>
                 </td>
-                <td><?php echo number_format($product['price']) ?></td>
+                <td><?php echo number_format($product['current_price']) ?></td>
                 <td><?php echo $product['amount'] ?></td>
                 <td><?php echo Helper::getStatusText($product['status']) ?></td>
                 <td><?php echo date('d-m-Y H:i:s', strtotime($product['created_at'])) ?></td>
@@ -71,10 +78,9 @@ require_once 'helpers/Helper.php';
                     $url_update = "index.php?controller=product&action=update&id=" . $product['id'];
                     $url_delete = "index.php?controller=product&action=delete&id=" . $product['id'];
                     ?>
-                    <a title="Chi tiết" href="<?php echo $url_detail ?>"><i class="fa fa-eye"></i></a> &nbsp;&nbsp;
-                    <a title="Update" href="<?php echo $url_update ?>"><i class="fa fa-pencil-alt"></i></a> &nbsp;&nbsp;
-                    <a title="Xóa" href="<?php echo $url_delete ?>" onclick="return confirm('Are you sure delete?')"><i
-                                class="fa fa-trash"></i></a>
+                    <a title="Chi tiết" href="<?php echo $url_detail ?>">Chi tiết</a> &nbsp;&nbsp;
+                    <a title="Update" href="<?php echo $url_update ?>">Sửa</a> &nbsp;&nbsp;
+                    <a title="Xóa" href="<?php echo $url_delete ?>" onclick="return confirm('Are you sure delete?')">Xóa</a>
                 </td>
             </tr>
         <?php endforeach; ?>

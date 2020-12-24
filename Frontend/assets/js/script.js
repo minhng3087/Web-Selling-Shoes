@@ -71,14 +71,6 @@ $(document).ready(function () {
             success: function (data) {
                 data = JSON.parse(data);
                 console.log(data);
-                $('.ajax-message')
-                    .html('Xóa sản phẩm thành công');
-                $('.ajax-message')
-                    .addClass('ajax-message-active');
-                setTimeout(function() {
-                    $('.ajax-message')
-                        .removeClass('ajax-message-active');
-                }, 3000);
                 renderCart(data.cartHeader);
                 renderTableCart(data.cartTable);
 
@@ -98,8 +90,13 @@ $(document).ready(function () {
         $('#list-cart').empty();
         $('#list-cart').html(data);
         $("input[type='number']").inputSpinner();
-
     }
+
+    $("select.orderBy").change(function(){
+        var selected = $(this).children("option:selected").val();
+        var name = location.href.split("/").pop();
+        $('form.assss').submit();
+    });
 
     
 });

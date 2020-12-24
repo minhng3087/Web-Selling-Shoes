@@ -32,6 +32,19 @@ class Product extends Model
         if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
             $this->str_search .= " AND products.category_id = {$_GET['category_id']}";
         }
+        if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-desc') {
+            $this->str_search .= " ORDER BY products.title DESC";
+        }
+        if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-asc') {
+            $this->str_search .= " ORDER BY products.title ASC";
+        }
+        if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'price-desc') {
+            $this->str_search .= " ORDER BY products.current_price DESC";
+        }
+        if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'price-asc') {
+            $this->str_search .= " ORDER BY products.current_price ASC";
+        }
+
     }
 
     /**
@@ -68,7 +81,6 @@ class Product extends Model
             ->prepare("SELECT products.*, categories.name AS category_name FROM products 
                         INNER JOIN categories ON categories.id = products.category_id
                         WHERE TRUE $this->str_search
-                        ORDER BY products.updated_at DESC, products.created_at DESC
                         LIMIT $start, $limit
                         ");
 

@@ -3,12 +3,16 @@
             <div class="ps-products" data-mh="product-listing">
             <div class="ps-product-action">
                 <div class="ps-product__filter">
-                <select class="ps-select selectpicker">
-                    <option value="1">Shortby</option>
-                    <option value="2">Name</option>
-                    <option value="3">Price (Low to High)</option>
-                    <option value="3">Price (High to Low)</option>
+                <form method="post" action="" class="assss"> 
+                <select class="ps-select selectpicker orderBy" name="aaaa">
+                    <option value="default">Mặc định</option>
+                    <option value="price-asc" >Giá tăng dần</option>
+                    <option value="price-desc">Giá giảm dần</option>
+                    <option value="alpha-asc">Từ A-Z</option>
+                    <option value="alpha-desc">Từ Z-A</option>
                 </select>
+                <input type="submit" style="display: none;" value="submit">
+                </form>
                 </div>
                 <!-- Phân trang -->
                 <div class="ps-pagination">
@@ -71,11 +75,13 @@
             </div>
             <div class="ps-product-action">
                 <div class="ps-product__filter">
-                <select class="ps-select selectpicker">
-                    <option value="1">Shortby</option>
-                    <option value="2">Name</option>
-                    <option value="3">Price (Low to High)</option>
-                    <option value="3">Price (High to Low)</option>
+                
+                <select class="ps-select selectpicker orderBy">
+                    <option value="default">Mặc định</option>
+                    <option value="price-asc">Giá tăng dần</option>
+                    <option value="price-desc">Giá giảm dần</option>
+                    <option value="alpha-asc">Từ A-Z</option>
+                    <option value="alpha-desc">Từ Z-A</option>
                 </select>
                 </div>
                 <div class="ps-pagination">
@@ -117,13 +123,9 @@
                 </div>
                 <div class="ps-widget__content">
                 <ul class="ps-list--checked">
-                    <li class="current"><a href="product-listing.html">Nike(521)</a></li>
-                    <li><a href="product-listing.html">Adidas(76)</a></li>
-                    <li><a href="product-listing.html">Baseball(69)</a></li>
-                    <li><a href="product-listing.html">Gucci(36)</a></li>
-                    <li><a href="product-listing.html">Dior(108)</a></li>
-                    <li><a href="product-listing.html">B&G(108)</a></li>
-                    <li><a href="product-listing.html">Louis Vuiton(47)</a></li>
+                    <li class="current"><a href="product-listing.html">Adidas</a></li>
+                    <li><a href="product-listing.html">Domba</a></li>
+                    <li><a href="product-listing.html">Reebok</a></li>
                 </ul>
                 </div>
             </aside>
