@@ -21,7 +21,7 @@ class ProductController extends Controller
         $query_additional .= '&category_id=' . $_GET['category_id'];
         }
         if (isset($_GET['orderBy'])) {
-        $query_additional .= '&order_by=' . $_GET['orderBy'];
+        $query_additional .= '&orderBy=' . $_GET['orderBy'];
         }
         $arr_params = [
             'total' => $count_total,

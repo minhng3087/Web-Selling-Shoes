@@ -26,6 +26,7 @@ require_once 'helpers/Helper.php';
     <div class="form-group">
         <label for="title">Sắp xếp</label>
         <select name="orderBy" class="form-control">
+            <option value="" >Chọn </option>
             <option value="price-asc" <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'price-asc') echo "selected";?>>Giá tăng dần</option>
             <option value="price-desc" <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'price-desc') echo "selected";?>>Giá giảm dần</option>
             <option value="alpha-asc"  <?php if (isset($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-asc') echo "selected";?>>Từ A-Z</option>
