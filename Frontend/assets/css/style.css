@@ -659,14 +659,26 @@ legend {
 
 textarea {
   overflow: auto; }
-
+  
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */ }
-
+    box-sizing: border-box;
+    /* 1 */
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border: solid 1px #8d8d8d;
+  
+    /* 2 */ }
+    .ps-list--checked [type="checkbox"]{
+      border-radius: 0px;
+      margin-right: 10px;
+    }
+    .ps-list--checked[type="checkbox"]:checked + label:after
+  {
+    background-color: #2AC37D;
+    border-color: #2AC37D; 
+  }
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto; }

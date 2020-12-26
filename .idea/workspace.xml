@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0acb2602-6ace-46d6-8d58-340806ce27ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Frontend/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/configs/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/configs/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/models/OrderDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/models/OrderDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/views/layouts/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/views/payments/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/views/payments/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/views/payments/mail_template_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/views/payments/mail_template_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/views/payments/thank.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/views/payments/thank.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/views/products/detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/views/products/detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/views/products/show_all.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/views/products/show_all.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1mBpvBzM0ZPKngZocSCzzx6Oloa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0acb2602-6ace-46d6-8d58-340806ce27ae" name="Default Changelist" comment="" />
+      <created>1608977068443</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608977068443</updated>
+      <workItem from="1608977071296" duration="1188000" />
+      <workItem from="1608990041420" duration="1455000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="863" y="187" key="#Deployment" timestamp="1608997033895">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="863" y="187" key="#Deployment/0.0.1680.1050@0.0.1680.1050" timestamp="1608997033895" />
+    <state x="609" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608977151340">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="609" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1608977151340" />
+    <state x="698" y="161" key="SettingsEditor" timestamp="1608977096641">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="698" y="161" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1608977096641" />
+  </component>
+</project>

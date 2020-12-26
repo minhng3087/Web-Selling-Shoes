@@ -17,21 +17,21 @@ require_once 'helpers/Helper.php';
               <div class="ps-product__thumbnail">
                 <div class="ps-product__preview">
                   <div class="ps-product__variants">
-                    <div class="item"><img src="assets/images/shoe-detail/1.jpg" alt=""></div>
-                    <div class="item"><img src="assets/images/shoe-detail/2.jpg" alt=""></div>
-                    <div class="item"><img src="assets/images/shoe-detail/3.jpg" alt=""></div>
-                    <div class="item"><img src="assets/images/shoe-detail/3.jpg" alt=""></div>
-                    <div class="item"><img src="assets/images/shoe-detail/3.jpg" alt=""></div>
+                    <div class="item"><img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt=""></div>
+                    <div class="item"><img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt=""></div>
+                    <div class="item"><img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt=""></div>
+                    <div class="item"><img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt=""></div>
+                    <div class="item"><img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt=""></div>
                   </div><a class="popup-youtube ps-product__video" href="http://www.youtube.com/watch?v=0O2aH4XLbto"><img src="assets/images/shoe-detail/1.jpg" alt=""><i class="fa fa-play"></i></a>
                 </div>
                 <div class="ps-product__image">
-                  <div class="item"><img class="zoom" src="assets/images/shoe-detail/1.jpg" alt="" data-zoom-image="assets/images/shoe-detail/1.jpg"></div>
-                  <div class="item"><img class="zoom" src="assets/images/shoe-detail/2.jpg" alt="" data-zoom-image="assets/images/shoe-detail/2.jpg"></div>
-                  <div class="item"><img class="zoom" src="assets/images/shoe-detail/3.jpg" alt="" data-zoom-image="assets/images/shoe-detail/3.jpg"></div>
+                  <div class="item"><img class="zoom" src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt="" data-zoom-image="assets/images/shoe-detail/1.jpg"></div>
+                  <div class="item"><img class="zoom" src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt="" data-zoom-image="assets/images/shoe-detail/2.jpg"></div>
+                  <div class="item"><img class="zoom" src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt="" data-zoom-image="assets/images/shoe-detail/3.jpg"></div>
                 </div>
               </div>
               <div class="ps-product__thumbnail--mobile">
-                <div class="ps-product__main-img"><img src="assets/images/shoe-detail/1.jpg" alt=""></div>
+                <div class="ps-product__main-img"><img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt=""></div>
                 <div class="ps-product__preview owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="20" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on"><img src="assets/images/shoe-detail/1.jpg" alt=""><img src="assets/images/shoe-detail/2.jpg" alt=""><img src="assets/images/shoe-detail/3.jpg" alt=""></div>
               </div>
               <div class="ps-product__info">
@@ -46,7 +46,7 @@ require_once 'helpers/Helper.php';
                 </div>
                 <h1><?php echo $product['title']; ?></h1>
                 <p class="ps-product__category"><a href="#"> Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p>
-                <h3 class="ps-product__price">£ 115 <del>£ 330</del></h3>
+                <h3 class="ps-product__price"><?php echo $product['current_price'];?> VND <del><?php echo $product['original_price'];?> VND </del></h3>
                 <div class="ps-product__block ps-product__quickview">
                   <h4>QUICK REVIEW</h4>
                   <p>The Nike Free RN 2017 Men's Running Sky weighs less than previous versions and features an updated knit material…</p>
@@ -54,10 +54,8 @@ require_once 'helpers/Helper.php';
                 <div class="ps-product__block ps-product__style">
                   <h4>CHOOSE YOUR STYLE</h4>
                   <ul>
-                    <li><a href="product-detail.html"><img src="assets/images/shoe/sidebar/1.jpg" alt=""></a></li>
-                    <li><a href="product-detail.html"><img src="assets/images/shoe/sidebar/2.jpg" alt=""></a></li>
-                    <li><a href="product-detail.html"><img src="assets/images/shoe/sidebar/3.jpg" alt=""></a></li>
-                    <li><a href="product-detail.html"><img src="assets/images/shoe/sidebar/2.jpg" alt=""></a></li>
+                    <li><a href="product-detail.html"><img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt=""></a></li>
+    
                   </ul>
                 </div>
                 <div class="ps-product__block ps-product__size">
@@ -102,7 +100,7 @@ require_once 'helpers/Helper.php';
                 <div class="tab-pane" role="tabpanel" id="tab_02">
                   <p class="mb-20">1 review for <strong>Shoes Air Jordan</strong></p>
                   <div class="ps-review">
-                    <div class="ps-review__thumbnail"><img src="assets/images/user/1.jpg" alt=""></div>
+                    <div class="ps-review__thumbnail"><img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt=""></div>
                     <div class="ps-review__content">
                       <header>
                         <select class="ps-rating">
@@ -188,14 +186,16 @@ require_once 'helpers/Helper.php';
           </div>
           <div class="ps-section__content">
             <div class="ps-owl--colection owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="30" data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
+            
+            <?php foreach ($suggestProducts as $suggestProduct): ?>
               <div class="ps-shoes--carousel">
                 <div class="ps-shoe">
                   <div class="ps-shoe__thumbnail">
-                    <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="assets/images/shoe/1.jpg" alt=""><a class="ps-shoe__overlay" href="product-detail.html"></a>
+                    <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="../Backend/assets/uploads/<?php echo $suggestProduct['avatar'] ?>" alt=""><a class="ps-shoe__overlay" href="product-detail.html"></a>
                   </div>
                   <div class="ps-shoe__content">
                     <div class="ps-shoe__variants">
-                      <div class="ps-shoe__variant normal"><img src="assets/images/shoe/2.jpg" alt=""><img src="assets/images/shoe/3.jpg" alt=""><img src="assets/images/shoe/4.jpg" alt=""><img src="assets/images/shoe/5.jpg" alt=""></div>
+                      <div class="ps-shoe__variant normal"><img src="../Backend/assets/uploads/<?php echo $suggestProduct['avatar'] ?>" alt=""><img src="../Backend/assets/uploads/<?php echo $suggestProduct['avatar'] ?>" alt=""><img src="../Backend/assets/uploads/<?php echo $suggestProduct['avatar'] ?>" alt=""><img src="../Backend/assets/uploads/<?php echo $suggestProduct['avatar'] ?>" alt=""></div>
                       <select class="ps-rating ps-shoe__rating">
                         <option value="1">1</option>
                         <option value="1">2</option>
@@ -204,124 +204,17 @@ require_once 'helpers/Helper.php';
                         <option value="2">5</option>
                       </select>
                     </div>
-                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                      <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
+                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html"><?php echo $suggestProduct['title']?></a>
+                      <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> <?php echo $suggestProduct['current_price'] ?></span>
                     </div>
                   </div>
                 </div>
+         
+            
               </div>
-              <div class="ps-shoes--carousel">
-                <div class="ps-shoe">
-                  <div class="ps-shoe__thumbnail">
-                    <div class="ps-badge"><span>New</span></div>
-                    <div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-35%</span></div><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="assets/images/shoe/2.jpg" alt=""><a class="ps-shoe__overlay" href="product-detail.html"></a>
-                  </div>
-                  <div class="ps-shoe__content">
-                    <div class="ps-shoe__variants">
-                      <div class="ps-shoe__variant normal"><img src="assets/images/shoe/2.jpg" alt=""><img src="assets/images/shoe/3.jpg" alt=""><img src="assets/images/shoe/4.jpg" alt=""><img src="assets/images/shoe/5.jpg" alt=""></div>
-                      <select class="ps-rating ps-shoe__rating">
-                        <option value="1">1</option>
-                        <option value="1">2</option>
-                        <option value="1">3</option>
-                        <option value="1">4</option>
-                        <option value="2">5</option>
-                      </select>
-                    </div>
-                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                      <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price">
-                        <del>£220</del> £ 120</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="ps-shoes--carousel">
-                <div class="ps-shoe">
-                  <div class="ps-shoe__thumbnail">
-                    <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="assets/images/shoe/3.jpg" alt=""><a class="ps-shoe__overlay" href="product-detail.html"></a>
-                  </div>
-                  <div class="ps-shoe__content">
-                    <div class="ps-shoe__variants">
-                      <div class="ps-shoe__variant normal"><img src="assets/images/shoe/2.jpg" alt=""><img src="assets/images/shoe/3.jpg" alt=""><img src="assets/images/shoe/4.jpg" alt=""><img src="assets/images/shoe/5.jpg" alt=""></div>
-                      <select class="ps-rating ps-shoe__rating">
-                        <option value="1">1</option>
-                        <option value="1">2</option>
-                        <option value="1">3</option>
-                        <option value="1">4</option>
-                        <option value="2">5</option>
-                      </select>
-                    </div>
-                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                      <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="ps-shoes--carousel">
-                <div class="ps-shoe">
-                  <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="assets/images/shoe/4.jpg" alt=""><a class="ps-shoe__overlay" href="product-detail.html"></a>
-                  </div>
-                  <div class="ps-shoe__content">
-                    <div class="ps-shoe__variants">
-                      <div class="ps-shoe__variant normal"><img src="assets/images/shoe/2.jpg" alt=""><img src="assets/images/shoe/3.jpg" alt=""><img src="assets/images/shoe/4.jpg" alt=""><img src="assets/images/shoe/5.jpg" alt=""></div>
-                      <select class="ps-rating ps-shoe__rating">
-                        <option value="1">1</option>
-                        <option value="1">2</option>
-                        <option value="1">3</option>
-                        <option value="1">4</option>
-                        <option value="2">5</option>
-                      </select>
-                    </div>
-                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                      <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="ps-shoes--carousel">
-                <div class="ps-shoe">
-                  <div class="ps-shoe__thumbnail">
-                    <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="assets/images/shoe/5.jpg" alt=""><a class="ps-shoe__overlay" href="product-detail.html"></a>
-                  </div>
-                  <div class="ps-shoe__content">
-                    <div class="ps-shoe__variants">
-                      <div class="ps-shoe__variant normal"><img src="assets/images/shoe/2.jpg" alt=""><img src="assets/images/shoe/3.jpg" alt=""><img src="assets/images/shoe/4.jpg" alt=""><img src="assets/images/shoe/5.jpg" alt=""></div>
-                      <select class="ps-rating ps-shoe__rating">
-                        <option value="1">1</option>
-                        <option value="1">2</option>
-                        <option value="1">3</option>
-                        <option value="1">4</option>
-                        <option value="2">5</option>
-                      </select>
-                    </div>
-                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                      <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="ps-shoes--carousel">
-                <div class="ps-shoe">
-                  <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="assets/images/shoe/6.jpg" alt=""><a class="ps-shoe__overlay" href="product-detail.html"></a>
-                  </div>
-                  <div class="ps-shoe__content">
-                    <div class="ps-shoe__variants">
-                      <div class="ps-shoe__variant normal"><img src="assets/images/shoe/2.jpg" alt=""><img src="assets/images/shoe/3.jpg" alt=""><img src="assets/images/shoe/4.jpg" alt=""><img src="assets/images/shoe/5.jpg" alt=""></div>
-                      <select class="ps-rating ps-shoe__rating">
-                        <option value="1">1</option>
-                        <option value="1">2</option>
-                        <option value="1">3</option>
-                        <option value="1">4</option>
-                        <option value="2">5</option>
-                      </select>
-                    </div>
-                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                      <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <?php endforeach; ?>
+             </div>
+          
         </div>
 	</div>
 </main>

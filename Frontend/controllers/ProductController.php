@@ -9,8 +9,10 @@ class ProductController extends Controller {
     $name = str_replace('-', ' ',$_GET['name']);
     $product_model = new Product();
     $product = $product_model->getProductByName($name);
+    $suggestProducts = $product_model->getSuggestProducts($name);
     $this->content = $this->render('views/products/detail.php',[
-      'product' => $product
+      'product' => $product,
+      'suggestProducts' => $suggestProducts
     ]);
     require_once 'views/layouts/main.php';
   }
@@ -26,7 +28,20 @@ class ProductController extends Controller {
     if (isset($_GET['orderBy'])) {
       $query_additional .= '&orderBy=' . $_GET['orderBy'];
     }
-
+    if (isset($_GET['filterPrice'])) {
+      if (isset($_GET['price1'])) {
+        $query_additional .= '&filterPrice=' . $_GET['price1'];
+      }
+      if (isset($_GET['price2'])) {
+        $query_additional .= '&filterPrice=' . $_GET['price2'];
+      }
+      if (isset($_GET['price3'])) {
+        $query_additional .= '&filterPrice=' . $_GET['price3'];
+      }
+      if (isset($_GET['price4'])) {
+        $query_additional .= '&filterPrice=' . $_GET['price4'];
+      }
+    }
     $arr_params = [
         'total' => $count_total,
         'limit' => 12,

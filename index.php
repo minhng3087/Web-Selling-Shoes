@@ -1,4 +1,4 @@
 <?php
-  header('location:/m/Frontend');
+  header('location:/PHP/final/Frontend');
   exit();
 ?>

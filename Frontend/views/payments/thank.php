@@ -1,3 +1,11 @@
-<div class="container">
-    <h1>Cảm ơn bạn đã đặt hàng, vui lòng kiểm tra mail để xem chi tiết đơn hàng của bạn</h1>
+<div class="jumbotron text-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead"><strong>Please check your email</strong> to complete your bill.</p>
+  <hr>
+  <p>
+    Having trouble? <a href="">Contact us</a>
+  </p>
+  <p class="lead">
+    <!-- <a class="btn btn-primary btn-sm" href="https://bootstrapcreative.com/" role="button">Continue to homepage</a> -->
+  </p>
 </div>

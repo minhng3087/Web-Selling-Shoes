@@ -13,7 +13,18 @@ class Product extends Model {
         if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
             $this->str_search .= " AND products.category_id = {$_GET['category_id']}";
         }
-
+        if (isset($_GET['price1'])  && $_GET['price1'] == 1){
+          $this->str_search .= " AND products.current_price < 1000000";
+        }
+        if (isset($_GET['price2'])  && $_GET['price2'] == 2){
+          $this->str_search .= " AND (products.current_price >= 1000000 AND products.current_price < 20000000)";
+        }
+        if (isset($_GET['price3'])  && $_GET['price3'] == 3){
+          $this->str_search .= "  AND (products.current_price >= 2000000 AND products.current_price < 30000000)";
+        }
+        if (isset($_GET['price4'])  && $_GET['price4'] == 4){
+          $this->str_search .= "AND products.current_price >= 3000000";
+        }
         if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-desc') {
           $this->str_search .= " ORDER BY products.title DESC";
         }
@@ -119,6 +130,14 @@ class Product extends Model {
     $obj_select_all = $this->connection->prepare($sql_select_all);
     $obj_select_all->execute();
     $products = $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
+    return $products;
+  }
+  public function getSuggestProducts($name){
+    $limit = 5;
+    $obj_select = $this->connection->prepare("SELECT * FROM products WHERE category_id IN (SELECT category_id FROM products WHERE title='$name') LIMIT $limit");
+    $arr_select = [];
+    $obj_select->execute($arr_select);
+    $products = $obj_select->fetchAll(PDO::FETCH_ASSOC);
     return $products;
   }
 }

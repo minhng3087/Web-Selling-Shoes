@@ -119,8 +119,22 @@
                 <h3>Category</h3>
                 </div>
                 <div class="ps-widget__content">
-                <div class="ac-slider" data-default-min="300" data-default-max="2000" data-max="3450" data-step="50" data-unit="$"></div>
-                <p class="ac-slider__meta">Price:<span class="ac-slider__value ac-slider__min"></span>-<span class="ac-slider__value ac-slider__max"></span></p><a class="ac-slider__filter ps-btn" href="#">Filter</a>
+                <form method="get" action="">
+                <ul class="ps-list--checked">
+                    <li><input type="checkbox" name="price1" value="1" <?php if (isset($_GET['price1']) && $_GET['price1'] === 1) echo "checked"; ?>  /> < 1,000,000 VND  
+                    <br/></li>
+                    <li><input type="checkbox" name="price2" value="2" <?php if (isset($_GET['price2']) && $_GET['price2'] === 2) echo "checked"; ?>/>    1,000,000 - 2,000,000 VND
+                    <br/></li>
+                    <li><input type="checkbox" name="price3" value="3" <?php if (isset($_GET['price3']) && $_GET['price3'] === 3) echo "checked"; ?>  /> 2,000,000 - 3,000,000 VND
+                    <br/>  </li>
+                    <li><input type="checkbox" name="price4" value="4" <?php if (isset($_GET['price4']) && $_GET['price4'] === 4) echo "checked"; ?>  /> > 3,000,000 VND  
+                    <br/>  </li>
+                    <li>  <input type="submit" name="filterPrice" value="Filter" class="ac-slider__filter ps-btn"/></li>
+                <input type="hidden" name="controller" value="<?php echo $_GET['controller'];?>"/>
+                <input type="hidden" name="action" value="<?php echo $_GET['action'];?>"/>
+                <input type="hidden" name="name" value="<?php echo $_GET['name'];?>"/>
+                </ul>
+                </form>
                 </div>
             </aside>
             <aside class="ps-widget--sidebar ps-widget--category">
