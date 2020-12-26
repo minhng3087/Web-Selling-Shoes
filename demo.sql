@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 22, 2020 at 04:01 PM
+-- Generation Time: Dec 26, 2020 at 11:03 AM
 -- Server version: 8.0.22
 -- PHP Version: 7.4.3
 
@@ -251,22 +251,22 @@ INSERT INTO `products` (`id`, `category_id`, `title`, `avatar`, `current_price`,
 -- (See below for the actual view)
 --
 CREATE TABLE `sale` (
-`amount` int
-,`avatar` varchar(100)
+`id` int
 ,`category_id` int
-,`content` text
-,`created_at` timestamp
+,`title` varchar(100)
+,`avatar` varchar(100)
 ,`current_price` int
-,`id` int
-,`new` tinyint
 ,`original_price` int
-,`salePrice` decimal(15,0)
+,`amount` int
+,`new` tinyint
+,`content` text
+,`status` tinyint
+,`seo_title` varchar(100)
 ,`seo_description` varchar(100)
 ,`seo_keywords` varchar(100)
-,`seo_title` varchar(100)
-,`status` tinyint
-,`title` varchar(100)
+,`created_at` timestamp
 ,`updated_at` datetime
+,`salePrice` decimal(15,0)
 );
 
 -- --------------------------------------------------------
@@ -279,6 +279,7 @@ CREATE TABLE `users` (
   `id` int NOT NULL,
   `username` varchar(100) DEFAULT NULL COMMENT 'Tên đăng nhập',
   `password` varchar(100) DEFAULT NULL COMMENT 'Mật khẩu đăng nhập',
+  `role` tinyint DEFAULT '1',
   `first_name` varchar(100) DEFAULT NULL COMMENT 'Fist name',
   `last_name` varchar(100) DEFAULT NULL COMMENT 'Last name',
   `phone` int DEFAULT NULL COMMENT 'SĐT user',
@@ -297,9 +298,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `phone`, `address`, `email`, `avatar`, `jobs`, `last_login`, `facebook`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'admin ', '25f9e794323b453885f5181f1b624d0b', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-11-17 11:55:41', NULL),
-(3, 'minh', '25f9e794323b453885f5181f1b624d0b', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-16 18:10:38', NULL);
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `first_name`, `last_name`, `phone`, `address`, `email`, `avatar`, `jobs`, `last_login`, `facebook`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'admin ', '25f9e794323b453885f5181f1b624d0b', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-11-17 11:55:41', NULL),
+(3, 'minh', '25f9e794323b453885f5181f1b624d0b', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-16 18:10:38', NULL),
+(4, 'nam', '25f9e794323b453885f5181f1b624d0b', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-26 04:02:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -389,7 +391,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
