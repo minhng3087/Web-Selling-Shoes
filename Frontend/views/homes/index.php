@@ -1,4 +1,6 @@
-
+<?php 
+  require_once 'helpers/Helper.php'
+?>
 <main class="ps-main">
       <div class="ps-banner">
         <div class="rev_slider fullscreenbanner" id="home-banner">
@@ -40,7 +42,7 @@
                         <span class="ps-shoe__favorite add-to-cart" data-id="<?php echo $product['id']; ?>">
                           <i class="ps-icon-shopping-cart"></i>
                         </span>
-                        <img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt=""><a class="ps-shoe__overlay" href="product-detail.html"></a>
+                        <img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt=""><a class="ps-shoe__overlay" href="index.php?controller=product&action=detail&name=<?php echo Helper::getSlug($product['title'])?>"></a>
                         <?php endif; ?>
                       </div>
                       <div class="ps-shoe__content">
@@ -54,7 +56,7 @@
                             <option value="2">5</option>
                           </select>
                         </div>
-                        <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#"><?php echo $product['title'] ?></a>
+                        <div class="ps-shoe__detail"><a class="ps-shoe__name" href="index.php?controller=product&action=detail&name=<?php echo Helper::getSlug($product['title'])?>"><?php echo $product['title'] ?></a>
                             <span>
                             <?php if($product['original_price'] !=0): ?>
                             <del>
@@ -104,7 +106,7 @@
                         <i class="ps-icon-shopping-cart"></i>
                     </span>
                       <img src="../Backend/assets/uploads/<?php echo $product['avatar'] ?>" alt="">
-                      <a class="ps-shoe__overlay" href="product-detail.html"></a>
+                      <a class="ps-shoe__overlay" href="index.php?controller=product&action=detail&name=<?php echo Helper::getSlug($product['title'])?>"></a>
                   </div>
                   <div class="ps-shoe__content">
                     <div class="ps-shoe__variants">
@@ -117,7 +119,7 @@
                         <option value="2">5</option>
                       </select>
                     </div>
-                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html"><?php echo $product['title'] ?></a>
+                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="index.php?controller=product&action=detail&name=<?php echo Helper::getSlug($product['title'])?>"><?php echo $product['title'] ?></a>
                     <span class="ps-shoe__price">
                       <del><?php echo number_format($product['original_price']) ?></del> <?php echo number_format($product['current_price']) ?></span>
                     </div>

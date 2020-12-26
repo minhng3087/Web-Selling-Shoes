@@ -71,7 +71,14 @@ class Product extends Model {
     return $product;
   }
 
-
+  public function getProductByName($name) {
+    $sql_select_one ="SELECT * FROM products WHERE title='$name'";
+    $obj_select_one = $this->connection->prepare($sql_select_one);
+    $obj_select_one->execute();
+    $product = $obj_select_one->fetch(PDO::FETCH_ASSOC);
+    return $product;
+  }
+  
   public function getProductById($product_id) {
     $sql_select_one =
         "SELECT * FROM products WHERE id=$product_id";

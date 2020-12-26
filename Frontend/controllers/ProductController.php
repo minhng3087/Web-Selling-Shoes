@@ -6,8 +6,12 @@ require_once 'models/Pagination.php';
 class ProductController extends Controller {
 
   public function detail() {
-
-    $this->content = $this->render('views/products/detail.php');
+    $name = str_replace('-', ' ',$_GET['name']);
+    $product_model = new Product();
+    $product = $product_model->getProductByName($name);
+    $this->content = $this->render('views/products/detail.php',[
+      'product' => $product
+    ]);
     require_once 'views/layouts/main.php';
   }
 

@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                   <?php if (isset($_SESSION['user'])): ?>
-                  <div class="header__actions"><a href="index.php?controller=login&action=logout">Logout</a>
+                  <div class="header__actions"><a href="index.php?controller=login&action=logou">Logout</a>
                   <?php else: ?>
                   <div class="header__actions"><a href="index.php?controller=login&action=login">Login & Regiser</a>
                   <?php endif; ?>
@@ -34,7 +34,7 @@
       <nav class="navigation">
         <div class="container-fluid">
           <div class="navigation__column left">
-            <div class="header__logo"><a class="ps-logo" href="index.html"><img src="assets/images/logo.png" alt=""></a></div>
+            <div class="header__logo"><a class="ps-logo" href="index.php?controller=home"><img src="assets/images/logo.png" alt=""></a></div>
           </div>
           <div class="navigation__column center">
                 <ul class="main-menu menu">

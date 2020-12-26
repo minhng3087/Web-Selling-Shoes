@@ -44,7 +44,7 @@ require_once 'helpers/Helper.php';
                     <option value="2">5</option>
                   </select><a href="#">(Read all 8 reviews)</a>
                 </div>
-                <h1>Air strong  training</h1>
+                <h1><?php echo $product['title']; ?></h1>
                 <p class="ps-product__category"><a href="#"> Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p>
                 <h3 class="ps-product__price">£ 115 <del>£ 330</del></h3>
                 <div class="ps-product__block ps-product__quickview">
