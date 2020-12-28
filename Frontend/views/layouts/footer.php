@@ -145,6 +145,28 @@
 <script type="text/javascript" src="assets/js/script.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap-input-spinner.js"></script>
 <script type="text/javascript" src="assets/plugins/alertifyjs/alertify.min.js"></script>
+<!--===============================================================================================-->
+<script  type="text/javascript" src="assets/js/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script  type="text/javascript" src="assets/js/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script  type="text/javascript" src="assets/js/bootstrap/js/popper.js"></script>
+	<script  type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script  type="text/javascript" src="assets/js/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script  type="text/javascript" src="assets/js/daterangepicker/moment.min.js"></script>
+	<script  type="text/javascript" src="assets/js/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script  type="text/javascript" src="assets/js/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/js/main_login.js"></script>
 <script>
     $("input[type='number']").inputSpinner();
 </script>

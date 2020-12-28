@@ -1,23 +1,31 @@
-<div class="container" style="max-width: 500px">
-    <form method="post" action="">
-        <h2>Form register</h2>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" name="username" value="" id="username" class="form-control"/>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" value="" id="password" class="form-control"/>
-        </div>
-        <div class="form-group">
-            <label for="password-confirm">Nhập lại password</label>
-            <input type="password" name="password_confirm" value="" id="password-confirm" class="form-control"/>
-        </div>
-        <div class="form-group">
-            <input type="submit" name="submit" value="Đăng ký" class="btn btn-primary"/>
-            <p>
-                Đã có tài khoản, <a href="index.php?controller=login&action=login">Đăng nhập</a> ngay
-            </p>
-        </div>
-    </form>
+<div class="main">
+
+<section class="signup">
+	<!-- <img src="images/signup-bg.jpg" alt=""> -->
+	<div class="container">
+		<div class="signup-content">
+			<form method="POST" id="signup-form" class="signup-form">
+				<h2 class="form-title">Create account</h2>
+				<div class="form-group">
+					<input type="text" class="form-input" name="username" id="username" placeholder="Your Name"/>
+				</div>
+				
+				<div class="form-group">
+					<input type="text" class="form-input" name="password" id="password" placeholder="Password"/>
+					<span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-input" name="password_confirm" id="re_password" placeholder="Repeat your password"/>
+				</div>
+				<div class="form-group">
+					<input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
+				</div>
+			</form>
+			<p class="loginhere">
+				Have already an account ? <a href="index.php?controller=login&action=login" class="loginhere-link">Login here</a>
+			</p>
+		</div>
+	</div>
+</section>
+
 </div>

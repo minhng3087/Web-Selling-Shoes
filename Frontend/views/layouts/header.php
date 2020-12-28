@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                   <?php if (isset($_SESSION['user'])): ?>
-                  <div class="header__actions"><a href="index.php?controller=login&action=logou">Logout</a>
+                  <div class="header__actions"><a href="index.php?controller=login&action=logout">Logout</a>
                   <?php else: ?>
                   <div class="header__actions"><a href="index.php?controller=login&action=login">Login & Regiser</a>
                   <?php endif; ?>

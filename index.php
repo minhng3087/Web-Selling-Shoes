@@ -1,4 +1,4 @@
 <?php
-  header('location:/PHP/final/Frontend');
+  header('location:http://localhost/Web-Selling-Shoes/Frontend/');
   exit();
 ?>

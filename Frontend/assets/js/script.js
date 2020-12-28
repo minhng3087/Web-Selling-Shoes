@@ -97,6 +97,9 @@ $(document).ready(function () {
         var name = location.href.split("/").pop();
         $('form.assss').submit();
     });
-
+    $( "#searchbar" ).autocomplete({
+        source: 'ajax-city-search.php',
+    });
+    
     
 });

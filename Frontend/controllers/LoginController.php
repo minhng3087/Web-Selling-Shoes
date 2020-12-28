@@ -57,7 +57,7 @@ class LoginController
                         exit();
                     }
                     else {
-                        header("Location: http://localhost/m/Backend/");
+                        header("Location: http://localhost/Web-Selling-Shoes/Backend/");
                         exit();
                     }
                 }
@@ -105,7 +105,7 @@ class LoginController
         }
 
         $this->content = $this->render('views/register/index.php');
-        require_once 'views/layouts/main_login.php';
+        require_once 'views/layouts/main_register.php';
     }
 
     public function logout() {

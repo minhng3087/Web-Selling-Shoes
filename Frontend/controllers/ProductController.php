@@ -28,19 +28,21 @@ class ProductController extends Controller {
     if (isset($_GET['orderBy'])) {
       $query_additional .= '&orderBy=' . $_GET['orderBy'];
     }
-    if (isset($_GET['filterPrice'])) {
-      if (isset($_GET['price1'])) {
-        $query_additional .= '&filterPrice=' . $_GET['price1'];
-      }
-      if (isset($_GET['price2'])) {
-        $query_additional .= '&filterPrice=' . $_GET['price2'];
-      }
-      if (isset($_GET['price3'])) {
-        $query_additional .= '&filterPrice=' . $_GET['price3'];
-      }
-      if (isset($_GET['price4'])) {
-        $query_additional .= '&filterPrice=' . $_GET['price4'];
-      }
+    if (isset($_GET['filterPrice']) && isset($_GET['price'])) {
+      // if (isset($_GET['price'])) {
+      //   $query_additional .= '&filterPrice=Filter' . '&price=' . $_GET['price'];
+      // }
+      $query_additional .= '&filterPrice=Filter' . '&price=' . $_GET['price'];
+
+      // if (isset($_GET['price2'])) {
+      //   $query_additional .= '&filterPrice=' . $_GET['price2'];
+      // }
+      // if (isset($_GET['price3'])) {
+      //   $query_additional .= '&filterPrice=' . $_GET['price3'];
+      // }
+      // if (isset($_GET['price4'])) {
+      //   $query_additional .= '&filterPrice=' . $_GET['price4'];
+      // }
     }
     $arr_params = [
         'total' => $count_total,

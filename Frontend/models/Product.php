@@ -13,17 +13,17 @@ class Product extends Model {
         if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
             $this->str_search .= " AND products.category_id = {$_GET['category_id']}";
         }
-        if (isset($_GET['price1'])  && $_GET['price1'] == 1){
+        if (isset($_GET['price'])  && $_GET['price'] == 1){
           $this->str_search .= " AND products.current_price < 1000000";
         }
-        if (isset($_GET['price2'])  && $_GET['price2'] == 2){
+        if (isset($_GET['price'])  && $_GET['price'] == 2){
           $this->str_search .= " AND (products.current_price >= 1000000 AND products.current_price < 20000000)";
         }
-        if (isset($_GET['price3'])  && $_GET['price3'] == 3){
-          $this->str_search .= "  AND (products.current_price >= 2000000 AND products.current_price < 30000000)";
+        if (isset($_GET['price'])  && $_GET['price'] == 3){
+          $this->str_search .= " AND (products.current_price >= 2000000 AND products.current_price < 30000000)";
         }
-        if (isset($_GET['price4'])  && $_GET['price4'] == 4){
-          $this->str_search .= "AND products.current_price >= 3000000";
+        if (isset($_GET['price'])  && $_GET['price'] == 4){
+          $this->str_search .= " AND products.current_price >= 3000000";
         }
         if (isset($_GET['orderBy']) && !empty($_GET['orderBy']) && $_GET['orderBy'] === 'alpha-desc') {
           $this->str_search .= " ORDER BY products.title DESC";
